@@ -1,0 +1,116 @@
+server_id = "mcp_jira"
+display_name = "Jira"
+version = "1.0.0"
+domain = "project-management"
+sdk_version = "0.1.0"
+risk_level = "medium"
+writes_allowed = "gated"
+transports = ["stdio"]
+credentials = ["vault://jira-api-token"]
+governance_gates = []
+environments = ["development", "staging", "production"]
+
+[[tools]]
+name = "list_projects"
+description = "List all Jira projects"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "get_project"
+description = "Get project details by key"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "search_issues"
+description = "Search issues using JQL"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "get_issue"
+description = "Get issue details by key"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "create_issue"
+description = "Create a new issue (Story, Bug, Task, or Epic)"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "update_issue"
+description = "Update issue fields (summary, description, priority, labels)"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "transition_issue"
+description = "Transition an issue through workflow states"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "assign_issue"
+description = "Assign an issue to a user"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "add_comment"
+description = "Add a comment to an issue"
+risk_class = "internal_write"
+requires_approval = false
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "list_comments"
+description = "List comments on an issue"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "get_transitions"
+description = "Get available workflow transitions for an issue"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "list_sprints"
+description = "List sprints for a board"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "create_sprint"
+description = "Create a new sprint on a board"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "add_to_sprint"
+description = "Move issues to a sprint"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = ["vault://jira-api-token"]
+
+[[tools]]
+name = "get_board"
+description = "Get board details (Scrum/Kanban)"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = ["vault://jira-api-token"]
