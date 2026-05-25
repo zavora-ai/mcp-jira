@@ -84,8 +84,20 @@ impl JiraClient {
     }
 
     pub async fn search_issues(&self, jql: &str, max_results: u32) -> anyhow::Result<Value> {
-        let body = serde_json::json!({ "jql": jql, "maxResults": max_results });
-        self.post("/rest/api/3/search", &body).await
+        // Jira deprecated POST /search. New endpoint is GET /search/jql.
+        // reqwest re-encodes commas in query params, so we use Command for exact URL control.
+        let url = format!("{}/rest/api/3/search/jql?jql={}&maxResults={}&fields=summary,status,assignee,priority,issuetype",
+            self.base_url,
+            jql.replace(' ', "%20").replace('=', "%3D"),
+            max_results);
+        let output = tokio::process::Command::new("curl")
+            .args(["-s", "-H", &format!("Authorization: {}", self.auth_header), &url])
+            .output().await?;
+        if output.status.success() {
+            Ok(serde_json::from_slice(&output.stdout)?)
+        } else {
+            anyhow::bail!("Jira search failed: {}", String::from_utf8_lossy(&output.stderr))
+        }
     }
 
     pub async fn get_issue(&self, key: &str) -> anyhow::Result<Value> {

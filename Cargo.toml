@@ -24,5 +24,6 @@ tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 async-trait = "0.1"
 schemars = "1"
 base64 = "0.22"
+urlencoding = "2"
 
 [workspace]
