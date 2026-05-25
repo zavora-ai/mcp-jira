@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="system-ui,-apple-system,sans-serif" font-size="13">
+  <defs>
+    <linearGradient id="jiraGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0052cc"/>
+      <stop offset="100%" style="stop-color:#2684ff"/>
+    </linearGradient>
+    <linearGradient id="mcpGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="400" rx="12" fill="#0f172a"/>
+  <text x="450" y="28" text-anchor="middle" fill="#94a3b8" font-size="11">MCP JIRA SERVER — ARCHITECTURE</text>
+
+  <!-- MCP Clients -->
+  <rect x="30" y="100" width="150" height="180" rx="8" fill="#1e293b" stroke="#475569"/>
+  <text x="105" y="122" text-anchor="middle" fill="#94a3b8" font-size="10">MCP CLIENTS</text>
+  <rect x="42" y="135" width="126" height="24" rx="4" fill="#334155"/>
+  <text x="105" y="152" text-anchor="middle" fill="#f1f5f9" font-size="10">Claude / Kiro</text>
+  <rect x="42" y="165" width="126" height="24" rx="4" fill="#334155"/>
+  <text x="105" y="182" text-anchor="middle" fill="#f1f5f9" font-size="10">Cursor / Codex</text>
+  <rect x="42" y="195" width="126" height="24" rx="4" fill="#334155"/>
+  <text x="105" y="212" text-anchor="middle" fill="#f1f5f9" font-size="10">Windsurf</text>
+  <rect x="42" y="225" width="126" height="24" rx="4" fill="#334155"/>
+  <text x="105" y="242" text-anchor="middle" fill="#f1f5f9" font-size="10">Any MCP Client</text>
+
+  <!-- Arrow -->
+  <line x1="180" y1="190" x2="240" y2="190" stroke="#6366f1" stroke-width="2"/>
+  <polygon points="240,185 250,190 240,195" fill="#6366f1"/>
+  <text x="215" y="180" text-anchor="middle" fill="#6366f1" font-size="9">stdio</text>
+
+  <!-- MCP Server -->
+  <rect x="250" y="50" width="280" height="300" rx="8" fill="url(#mcpGrad)" opacity="0.1" stroke="#10b981" stroke-width="1.5"/>
+  <text x="390" y="72" text-anchor="middle" fill="#10b981" font-size="13" font-weight="bold">mcp-jira</text>
+  <text x="390" y="88" text-anchor="middle" fill="#64748b" font-size="9">Rust · rmcp 1.7 · 15 tools</text>
+
+  <!-- Tool categories -->
+  <rect x="262" y="100" width="125" height="65" rx="4" fill="#1e293b"/>
+  <text x="324" y="118" text-anchor="middle" fill="#38bdf8" font-size="9">ISSUES (8)</text>
+  <text x="324" y="133" text-anchor="middle" fill="#64748b" font-size="8">search · get · create</text>
+  <text x="324" y="145" text-anchor="middle" fill="#64748b" font-size="8">update · transition</text>
+  <text x="324" y="157" text-anchor="middle" fill="#64748b" font-size="8">assign · comment</text>
+
+  <rect x="393" y="100" width="125" height="65" rx="4" fill="#1e293b"/>
+  <text x="455" y="118" text-anchor="middle" fill="#fbbf24" font-size="9">PROJECTS (2)</text>
+  <text x="455" y="133" text-anchor="middle" fill="#64748b" font-size="8">list_projects</text>
+  <text x="455" y="145" text-anchor="middle" fill="#64748b" font-size="8">get_project</text>
+
+  <rect x="262" y="175" width="125" height="55" rx="4" fill="#1e293b"/>
+  <text x="324" y="193" text-anchor="middle" fill="#a78bfa" font-size="9">SPRINTS (3)</text>
+  <text x="324" y="208" text-anchor="middle" fill="#64748b" font-size="8">list · create</text>
+  <text x="324" y="220" text-anchor="middle" fill="#64748b" font-size="8">add_to_sprint</text>
+
+  <rect x="393" y="175" width="125" height="55" rx="4" fill="#1e293b"/>
+  <text x="455" y="193" text-anchor="middle" fill="#fb923c" font-size="9">BOARDS (2)</text>
+  <text x="455" y="208" text-anchor="middle" fill="#64748b" font-size="8">get_board</text>
+  <text x="455" y="220" text-anchor="middle" fill="#64748b" font-size="8">get_transitions</text>
+
+  <rect x="262" y="240" width="256" height="24" rx="4" fill="#1e293b"/>
+  <text x="390" y="256" text-anchor="middle" fill="#94a3b8" font-size="9">Basic Auth (email:token) · HealthCheck · mcp-server.toml</text>
+
+  <!-- Arrow to Jira -->
+  <line x1="530" y1="160" x2="600" y2="160" stroke="#2684ff" stroke-width="2"/>
+  <polygon points="600,155 610,160 600,165" fill="#2684ff"/>
+  <text x="565" y="150" text-anchor="middle" fill="#2684ff" font-size="9">HTTPS</text>
+
+  <!-- Jira Cloud -->
+  <rect x="610" y="80" width="220" height="180" rx="8" fill="url(#jiraGrad)" opacity="0.15" stroke="#2684ff" stroke-width="1.5"/>
+  <text x="720" y="105" text-anchor="middle" fill="#2684ff" font-size="13" font-weight="bold">Jira Cloud</text>
+  <text x="720" y="122" text-anchor="middle" fill="#64748b" font-size="9">REST API v3 + Agile API</text>
+
+  <rect x="625" y="135" width="190" height="22" rx="3" fill="#1e293b"/>
+  <text x="720" y="150" text-anchor="middle" fill="#f1f5f9" font-size="9">/rest/api/3/issue · /search/jql</text>
+  <rect x="625" y="162" width="190" height="22" rx="3" fill="#1e293b"/>
+  <text x="720" y="177" text-anchor="middle" fill="#f1f5f9" font-size="9">/rest/api/3/project · /comment</text>
+  <rect x="625" y="189" width="190" height="22" rx="3" fill="#1e293b"/>
+  <text x="720" y="204" text-anchor="middle" fill="#f1f5f9" font-size="9">/rest/agile/1.0/board · /sprint</text>
+  <rect x="625" y="216" width="190" height="22" rx="3" fill="#1e293b"/>
+  <text x="720" y="231" text-anchor="middle" fill="#f1f5f9" font-size="9">zavora.atlassian.net</text>
+
+  <!-- Footer -->
+  <text x="450" y="380" text-anchor="middle" fill="#475569" font-size="10">mcp-jira v1.0.0 · 15 tools · Jira Cloud REST API v3 · Basic Auth</text>
+</svg>

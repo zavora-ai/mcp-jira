@@ -2,7 +2,11 @@
 
 Jira MCP Server — issues, projects, sprints, boards, comments, transitions, and JQL search for AI agents.
 
-<img src="https://raw.githubusercontent.com/zavora-ai/mcp-jira/main/docs/assets/banner.png" alt="mcp-jira" width="600">
+## Architecture
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/zavora-ai/mcp-jira/main/docs/assets/architecture.svg" alt="MCP Jira Architecture" width="800"/>
+</p>
 
 ## Setup
 
